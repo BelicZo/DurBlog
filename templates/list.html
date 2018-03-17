@@ -1,232 +1,290 @@
-<!doctype html>
-<html lang="zh-CN">
-{% load staticfiles %}
-<head>
-    <meta charset="utf-8">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>木庄网络博客MZ-NetBlog主题源码</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/nprogress.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
-    <link rel="apple-touch-icon-precomposed" href="images/icon.png">
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
-    <script src="{% static 'js/nprogress.js' %}"></script>
-    <script src="{% static 'js/jquery.lazyload.min.js' %}"></script>
-    <!--[if gte IE 9]>
-  <script src="{% static 'js/jquery-1.11.1.min.js' %}" type="text/javascript"></script>
-  <script src="{% static 'js/html5shiv.min.js' %}" type="text/javascript"></script>
-  <script src="{% static 'js/respond.min.js' %}" type="text/javascript"></script>
-  <script src="{% static 'js/selectivizr-min.js' %}" type="text/javascript"></script>
-<![endif]-->
-    <!--[if lt IE 9]>
-  <script>window.location.href='upgrade-browser.html';</script>
-<![endif]-->
-</head>
-<body class="user-select">
-    <header class="header">
-  <nav class="navbar navbar-default" id="navbar">
-    <div class="container">
-      <div class="header-topbar hidden-xs link-border">
-        <ul class="site-nav topmenu">
-          <li><a href="http://www.muzhuangnet.com/tags/" >标签云</a></li>
-            <li><a href="http://www.muzhuangnet.com/readers/" rel="nofollow" >读者墙</a></li>
-            <li><a href="http://www.muzhuangnet.com/rss.html" title="RSS订阅" >
-                <i class="fa fa-rss">
-                </i> RSS订阅
-            </a></li>
-        </ul>
-        勤记录 懂分享</div>
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar" aria-expanded="false"> <span class="sr-only"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-        <h1 class="logo hvr-bounce-in"><a href="http://www.muzhuangnet.com/" title="木庄网络博客"><img src="http://www.muzhuangnet.com/upload/201610/17/201610171329086541.png" alt="木庄网络博客"></a></h1>
-      </div>
-      <div class="collapse navbar-collapse" id="header-navbar">
-        <form class="navbar-form visible-xs" action="/Search" method="post">
-          <div class="input-group">
-            <input type="text" name="keyword" class="form-control" placeholder="请输入关键字" maxlength="20" autocomplete="off">
-            <span class="input-group-btn">
-            <button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
-            </span> </div>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a data-cont="木庄网络博客" title="木庄网络博客" href="index.html">首页</a></li>
-          <li><a data-cont="列表页" title="列表页" href="list.html">列表页</a></li>
-          <li><a data-cont="详细页" title="详细页" href="show.html">详细页</a></li>
-          <li><a data-cont="404" title="404" href="404.html">404</a></li>
-          <li><a data-cont="MZ-NetBolg主题" title="MZ-NetBolg主题" href="http://www.muzhuangnet.com/list/mznetblog/" >MZ-NetBolg主题</a></li>
-          <li><a data-cont="IT技术笔记" title="IT技术笔记" href="http://www.muzhuangnet.com/list/code/" >IT技术笔记</a></li>
-          <li><a data-cont="源码分享" title="源码分享" href="http://www.muzhuangnet.com/list/share/" >源码分享</a></li>
-          <li><a data-cont="靠谱网赚" title="靠谱网赚" href="http://www.muzhuangnet.com/list/money/" >靠谱网赚</a></li>
-          <li><a data-cont="资讯分享" title="资讯分享" href="http://www.muzhuangnet.com/list/news/" >资讯分享</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
-    <section class="container">
-  <div class="content-wrap">
-    <div class="content">
-      <div class="title">
-        <h3 style="line-height: 1.3">MZ-NetBlog主题</h3>
-      </div>
-      <article class="excerpt excerpt-1"><a class="focus" href="http://www.muzhuangnet.com/show/269.html" title="用DTcms做一个独立博客网站（响应式模板）" target="_blank" ><img class="thumb" data-original="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" src="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: inline;"></a>
-        <header><a class="cat" href="http://www.muzhuangnet.com/list/mznetblog/" title="MZ-NetBlog主题" >MZ-NetBlog主题<i></i></a>
-          <h2><a href="http://www.muzhuangnet.com/show/269.html" title="用DTcms做一个独立博客网站（响应式模板）" target="_blank" >用DTcms做一个独立博客网站（响应式模板）</a></h2>
-        </header>
-        <p class="meta">
-          <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-10-14</time>
-          <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 217</span> <a class="comment" href="http://www.muzhuangnet.com/show/269.html#comment" title="评论" target="_blank" ><i class="glyphicon glyphicon-comment"></i> 4</a></p>
-        <p class="note">用DTcms做一个独立博客网站（响应式模板），采用DTcms V4.0正式版（MSSQL）。开发环境：SQL2008R2+VS2010。DTcms V4.0正式版功能修复和优化：1、favicon.ico图标后台上传。（解决要换图标时要连FTP或者开服务器的麻烦）</p>
-      </article>
-      <article class="excerpt excerpt-2"><a class="focus" href="http://www.muzhuangnet.com/show/269.html" title="用DTcms做一个独立博客网站（响应式模板）" target="_blank" ><img class="thumb" data-original="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" src="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: inline;"></a>
-        <header><a class="cat" href="http://www.muzhuangnet.com/list/mznetblog/" title="MZ-NetBlog主题" >MZ-NetBlog主题<i></i></a>
-          <h2><a href="http://www.muzhuangnet.com/show/269.html" title="用DTcms做一个独立博客网站（响应式模板）" target="_blank" >用DTcms做一个独立博客网站（响应式模板）</a></h2>
-        </header>
-        <p class="meta">
-          <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-10-14</time>
-          <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 217</span> <a class="comment" href="http://www.muzhuangnet.com/show/269.html#comment" title="评论" target="_blank" ><i class="glyphicon glyphicon-comment"></i> 4</a></p>
-        <p class="note">用DTcms做一个独立博客网站（响应式模板），采用DTcms V4.0正式版（MSSQL）。开发环境：SQL2008R2+VS2010。DTcms V4.0正式版功能修复和优化：1、favicon.ico图标后台上传。（解决要换图标时要连FTP或者开服务器的麻烦）</p>
-      </article>
-      <article class="excerpt excerpt-3"><a class="focus" href="http://www.muzhuangnet.com/show/269.html" title="用DTcms做一个独立博客网站（响应式模板）" target="_blank" ><img class="thumb" data-original="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" src="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: inline;"></a>
-        <header><a class="cat" href="http://www.muzhuangnet.com/list/mznetblog/" title="MZ-NetBlog主题" >MZ-NetBlog主题<i></i></a>
-          <h2><a href="http://www.muzhuangnet.com/show/269.html" title="用DTcms做一个独立博客网站（响应式模板）" target="_blank" >用DTcms做一个独立博客网站（响应式模板）</a></h2>
-        </header>
-        <p class="meta">
-          <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-10-14</time>
-          <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 217</span> <a class="comment" href="http://www.muzhuangnet.com/show/269.html#comment" title="评论" target="_blank" ><i class="glyphicon glyphicon-comment"></i> 4</a></p>
-        <p class="note">用DTcms做一个独立博客网站（响应式模板），采用DTcms V4.0正式版（MSSQL）。开发环境：SQL2008R2+VS2010。DTcms V4.0正式版功能修复和优化：1、favicon.ico图标后台上传。（解决要换图标时要连FTP或者开服务器的麻烦）</p>
-      </article>
-      <article class="excerpt excerpt-4"><a class="focus" href="http://www.muzhuangnet.com/show/269.html" title="用DTcms做一个独立博客网站（响应式模板）" target="_blank" ><img class="thumb" data-original="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" src="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: inline;"></a>
-        <header><a class="cat" href="http://www.muzhuangnet.com/list/mznetblog/" title="MZ-NetBlog主题" >MZ-NetBlog主题<i></i></a>
-          <h2><a href="http://www.muzhuangnet.com/show/269.html" title="用DTcms做一个独立博客网站（响应式模板）" target="_blank" >用DTcms做一个独立博客网站（响应式模板）</a></h2>
-        </header>
-        <p class="meta">
-          <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-10-14</time>
-          <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 217</span> <a class="comment" href="http://www.muzhuangnet.com/show/269.html#comment" title="评论" target="_blank" ><i class="glyphicon glyphicon-comment"></i> 4</a></p>
-        <p class="note">用DTcms做一个独立博客网站（响应式模板），采用DTcms V4.0正式版（MSSQL）。开发环境：SQL2008R2+VS2010。DTcms V4.0正式版功能修复和优化：1、favicon.ico图标后台上传。（解决要换图标时要连FTP或者开服务器的麻烦）</p>
-      </article>
-      <article class="excerpt excerpt-5"><a class="focus" href="http://www.muzhuangnet.com/show/269.html" title="用DTcms做一个独立博客网站（响应式模板）" target="_blank" ><img class="thumb" data-original="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" src="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: inline;"></a>
-        <header><a class="cat" href="http://www.muzhuangnet.com/list/mznetblog/" title="MZ-NetBlog主题" >MZ-NetBlog主题<i></i></a>
-          <h2><a href="http://www.muzhuangnet.com/show/269.html" title="用DTcms做一个独立博客网站（响应式模板）" target="_blank" >用DTcms做一个独立博客网站（响应式模板）</a></h2>
-        </header>
-        <p class="meta">
-          <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-10-14</time>
-          <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 217</span> <a class="comment" href="http://www.muzhuangnet.com/show/269.html#comment" title="评论" target="_blank" ><i class="glyphicon glyphicon-comment"></i> 4</a></p>
-        <p class="note">用DTcms做一个独立博客网站（响应式模板），采用DTcms V4.0正式版（MSSQL）。开发环境：SQL2008R2+VS2010。DTcms V4.0正式版功能修复和优化：1、favicon.ico图标后台上传。（解决要换图标时要连FTP或者开服务器的麻烦）</p>
-      </article>
-      <nav class="pagination" style="display: none;">
-        <ul>
-          <li class="prev-page"></li>
-          <li class="active"><span>1</span></li>
-          <li><a href="?page=2">2</a></li>
-          <li class="next-page"><a href="?page=2">下一页</a></li>
-          <li><span>共 2 页</span></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <aside class="sidebar">
-    <div class="fixed">
-      <div class="widget widget_search">
-        <form class="navbar-form" action="/Search" method="post">
-          <div class="input-group">
-            <input type="text" name="keyword" class="form-control" size="35" placeholder="请输入关键字" maxlength="15" autocomplete="off">
-            <span class="input-group-btn">
-            <button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
-            </span> </div>
-        </form>
-      </div>
-      <div class="widget widget_sentence">
-        <h3>标签云</h3>
-        <div class="widget-sentence-content">
-            <ul class="plinks ptags">                
-                <li><a href="http://www.muzhuangnet.com/tags/list/67/" title="移动统计" draggable="false">移动统计 <span class="badge">1</span></a></li>                
-                <li><a href="http://www.muzhuangnet.com/tags/list/256/" title="404" draggable="false">404 <span class="badge">1</span></a></li>      
-                <li><a href="http://www.muzhuangnet.com/tags/list/252/" title="VS2010" draggable="false">VS2010 <span class="badge">1</span></a></li>                
-                <li><a href="http://www.muzhuangnet.com/tags/list/162/" title="杀毒软件" draggable="false">杀毒软件 <span class="badge">1</span></a></li>                
-                <li><a href="http://www.muzhuangnet.com/tags/list/133/" title="html标签" draggable="false">html标签 <span class="badge">1</span></a></li>                
-                <li><a href="http://www.muzhuangnet.com/tags/list/49/" title="循环" draggable="false">循环 <span class="badge">2</span></a></li>                
-                <li><a href="http://www.muzhuangnet.com/tags/list/22/" title="百度统计" draggable="false">百度统计 <span class="badge">2</span></a></li>                
-                <li><a href="http://www.muzhuangnet.com/tags/list/132/" title="sql" draggable="false">sql <span class="badge">6</span></a></li>                
-            </ul>
+{% extends '_base.html' %}
+
+{% block content-main %}
+{#                <iframe id="J_iframe" width="100%" height="100%" src="index_v1.html?v=4.0" frameborder="0" data-id="index_v1.html" seamless></iframe>#}
+    <div class="wrapper wrapper-content  animated fadeInRight blog">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <a href="article.html" class="btn-link">
+                            <h2>
+                                    想知道宁泽涛每天游多少圈？送他 Misfit 最新款 Speedo Shine
+                                </h2>
+                        </a>
+                        <div class="small m-b-xs">
+                            <strong>高 晨</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 3 小时前</span>
+                        </div>
+                        <p>
+                            就算你敢带着 Apple Watch 下水游泳，它也不能记录你游了多少圈。 夏天刚来时就不停地听到有人提起“有没有在我游泳的时候可以帮忙数圈的设备”，今天 Misfit 终于赶在夏天结束之前推出可追踪游泳运动的新款 Shine。这款新设备是 Misfit 与泳衣品牌 Speedo （速比涛）合作推出，因此被命名为 Speedo Shine。
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>标签：</h5>
+                                <button class="btn btn-primary btn-xs" type="button">Apple Watch</button>
+                                <button class="btn btn-white btn-xs" type="button">速比涛</button>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="small text-right">
+                                    <h5>状态：</h5>
+                                    <div> <i class="fa fa-comments-o"> </i> 56 评论 </div>
+                                    <i class="fa fa-eye"> </i> 144 浏览
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <a href="article.html" class="btn-link">
+                            <h2>
+                                    半数用户弃用 Apple Music？苹果发话了
+                                </h2>
+                        </a>
+                        <div class="small m-b-xs">
+                            <strong>周 欣</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 3 小时前</span>
+                        </div>
+                        <p>
+                            前不久，苹果公司高级副总裁 Eddy Cue 还在宣称 Apple Music 试用期用户超 1100 万，最近就有一份来自 MusicWatch 的调查报告，让人大跌眼镜。
+
+
+                        </p>
+                        <p>
+                            MusicWatch 针对美国 5000 名 13 岁以上人群进行抽样调查，得出数据：约有 77% 的 iOS 用户知道 Apple Music，只有 11% 的用户正在使用它；而在已经注册 Apple Music 三个月免费试用服务的用户中，48% 表示已经弃用，61% 称已关闭 iTunes 中的自动订阅功能。
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>标签：</h5>
+                                <button class="btn btn-primary btn-xs" type="button">调查</button>
+                                <button class="btn btn-white btn-xs" type="button">用户</button>
+                                <button class="btn btn-white btn-xs" type="button">Apple Music</button>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="small text-right">
+                                    <h5>状态：</h5>
+                                    <div> <i class="fa fa-comments-o"> </i> 36 评论 </div>
+                                    <i class="fa fa-eye"> </i> 100 浏览
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <a href="article.html" class="btn-link">
+                            <h2>
+                                    关于新 Apple TV，这里有几点你应该知道的
+                                </h2>
+                        </a>
+                        <div class="small m-b-xs">
+                            <strong>李 谋</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 2 小时前</span>
+                        </div>
+                        <p>
+                            新版的 Apple TV 之前一直有传闻将在 WWDC 上亮相，可是事与愿违。下一代 iPhone 即将于下月与大家见面，新版 Apple TV 将同新 iPhone 一起亮相的传言又是四起。而且现在的传言中还加入了新料。</p>
+                        <p>
+
+                            据 9to5Mac 的消息，Apple TV 不仅要在九月亮相，其诸多细节也一并被曝出。
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>标签：</h5>
+                                <button class="btn btn-white btn-xs" type="button">apple</button>
+                                <button class="btn btn-white btn-xs" type="button">tv</button>
+                                <button class="btn btn-white btn-xs" type="button">苹果</button>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="small text-right">
+                                    <h5>状态：</h5>
+                                    <div> <i class="fa fa-comments-o"> </i> 11 评论 </div>
+                                    <i class="fa fa-eye"> </i> 46 浏览
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <a href="article.html" class="btn-link">
+                            <h2>
+                                    妹子性致不高？该吃药了！
+                                </h2>
+                        </a>
+                        <div class="small m-b-xs">
+                            <strong>吴 垠</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 4 小时前</span>
+                        </div>
+                        <p>
+                            近日天天有人在朋友圈里放出“酒店 X 折”的广告，原来七夕到了。恰恰在这个中国人的传统节日里，美国也凑起了热闹，FDA 通过了 Addyi 的审批，这是第一种能解决女性性欲问题的药物。此前，Addyi 在 2010 年和2013 年曾两次报批被拒，理由是“药效的边际效应和副作用”。</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>标签：</h5>
+                                <button class="btn btn-white btn-xs" type="button">性欲障碍</button>
+                                <button class="btn btn-white btn-xs" type="button">Viagro</button>
+                                <button class="btn btn-white btn-xs" type="button">Addyi</button>
+                                <button class="btn btn-white btn-xs" type="button">伟哥</button>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="small text-right">
+                                    <h5>状态：</h5>
+                                    <div> <i class="fa fa-comments-o"> </i> 23 评论 </div>
+                                    <i class="fa fa-eye"> </i> 34 浏览
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <a href="article.html" class="btn-link">
+                            <h2>
+
+将发新系统的微软要如何做“反盗版”先锋？
+                                </h2>
+                        </a>
+                        <div class="small m-b-xs">
+                            <strong>李 谋</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 6 小时前</span>
+                        </div>
+                        <p>
+                            有一句话叫什么来着，“打击盗版，人人有责”。 使用正版，拒绝盗版，即使对于普通用户而言，这也是一种政治正确。然而，在这个充满各种特殊情况的地方，总有很多例外。许多国外巨头在进入国内时，都会在针对普通用户的版权方面适度放宽松一点。微软在之前也是如此。不过自 Windows 10 开始，微软在反盗版方面的策略有所改变。
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>标签：</h5>
+                                <button class="btn btn-white btn-xs" type="button">盗版</button>
+                                <button class="btn btn-white btn-xs" type="button">xbox</button>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="small text-right">
+                                    <h5>状态：</h5>
+                                    <div> <i class="fa fa-comments-o"> </i> 32 评论 </div>
+                                    <i class="fa fa-eye"> </i> 10 浏览
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <a href="article.html" class="btn-link">
+                            <h2>
+                                    对话春水堂，情趣电商站着把钱赚了的方法论 | iSeed
+                                </h2>
+                        </a>
+                        <div class="small m-b-xs">
+                            <strong>陈一斌</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 7 小时前</span>
+                        </div>
+                        <p>
+                            当春水堂不再只是卖成人用品——虽然蔺德刚更喜欢用“性玩具”来指代这个词——那么它到底是想成为什么？此前，“春叔”对腾讯科技说，春水堂未来是希望“成为两性以及情侣关系的私人管家”。在接受爱范儿的采访时，他阐述更加清晰的进一步定位，春水堂“未来将从成人用品电商，转型为性健康产业的生态型公司。未来将介入到咨询领域，破除性观念上的认知和知识上的障碍，还可能会延展到药品领域等等。”
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>标签：</h5>
+                                <button class="btn btn-white btn-xs" type="button">蔺德刚</button>
+                                <button class="btn btn-white btn-xs" type="button">性快乐</button>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="small text-right">
+                                    <h5>状态：</h5>
+                                    <div> <i class="fa fa-comments-o"> </i> 22 评论 </div>
+                                    <i class="fa fa-eye"> </i> 17 浏览
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <a href="article.html" class="btn-link">
+                            <h2>
+                                    阿里投资印度“淘宝”，腾讯投资加拿大“微信” | 爱范早读
+                                </h2>
+                        </a>
+                        <div class="small m-b-xs">
+                            <strong>李 谋</strong> <span class="text-muted"><i class="fa fa-clock-o"></i>  7 小时前</span>
+                        </div>
+                        <p>
+                            1. 阿里富士康等 5 亿美元投资印度“淘宝” Snapdeal。印度大型电子商务公司 Snapdeal 已获得 5 亿美元的投资，公司现估值 50 亿美元，主要投资者为阿里巴巴、富士康和软银。据称，阿里巴巴与富士康均投资 2 亿美元。
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>标签：</h5>
+                                <button class="btn btn-primary btn-xs" type="button">阿里</button>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="small text-right">
+                                    <h5>状态：</h5>
+                                    <div> <i class="fa fa-comments-o"> </i> 54 评论 </div>
+                                    <i class="fa fa-eye"> </i> 52 浏览
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <a href="article.html" class="btn-link">
+                            <h2>
+                                    Google 发布了新玩意 OnHub，称只是想简简单单的
+                                </h2>
+                        </a>
+                        <div class="small m-b-xs">
+                            <strong>王 飞</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 8 小时前</span>
+                        </div>
+                        <p>
+                            目前的路由器市场也是新品不断，不过至此仍未有太多的令人兴奋的技术和产品，Google 正试图改变这种状况。
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>标签：</h5>
+                                <button class="btn btn-white btn-xs" type="button">家居物联网</button>
+                                <button class="btn btn-white btn-xs" type="button">2015 Google I/O</button>
+                                <button class="btn btn-white btn-xs" type="button">Google</button>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="small text-right">
+                                    <h5>状态：</h5>
+                                    <div> <i class="fa fa-comments-o"> </i> 47 评论 </div>
+                                    <i class="fa fa-eye"> </i> 138 浏览
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <a href="article.html" class="btn-link">
+                            <h2>
+                                    自行车都智能化了，你可知道它的历史？
+                                </h2>
+                        </a>
+                        <div class="small m-b-xs">
+                            <strong>郝 影</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 9 小时前</span>
+                        </div>
+                        <p>
+                            在不少旁观者的眼里，智能化几乎成了一种避之唯恐不及的“瘟疫”，开始攀附上大大小小、各式各样的工具和设备，从水杯、灯泡、体重秤这样的小物件，再到冰箱、洗衣机这些生活中的庞然大物。
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>标签：</h5>
+                                <button class="btn btn-primary btn-xs" type="button">自行车</button>
+                                <button class="btn btn-white btn-xs" type="button">700BIKE</button>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="small text-right">
+                                    <h5>状态：</h5>
+                                    <div> <i class="fa fa-comments-o"> </i> 54 评论 </div>
+                                    <i class="fa fa-eye"> </i> 52 浏览
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <div class="widget widget_hot">
-          <h3>最新评论文章</h3>
-          <ul>
-            
-<li><a title="用DTcms做一个独立博客网站（响应式模板）" href="http://www.muzhuangnet.com/show/269.html" ><span class="thumbnail">
-    <img class="thumb" data-original="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" src="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-</span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-    2016-11-01
-</span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-<li><a title="用DTcms做一个独立博客网站（响应式模板）" href="http://www.muzhuangnet.com/show/269.html" ><span class="thumbnail">
-    <img class="thumb" data-original="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" src="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-</span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-    2016-11-01
-</span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-<li><a title="用DTcms做一个独立博客网站（响应式模板）" href="http://www.muzhuangnet.com/show/269.html" ><span class="thumbnail">
-    <img class="thumb" data-original="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" src="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-</span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-    2016-11-01
-</span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-<li><a title="用DTcms做一个独立博客网站（响应式模板）" href="http://www.muzhuangnet.com/show/269.html" ><span class="thumbnail">
-    <img class="thumb" data-original="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" src="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-</span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-    2016-11-01
-</span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-<li><a title="用DTcms做一个独立博客网站（响应式模板）" href="http://www.muzhuangnet.com/show/269.html" ><span class="thumbnail">
-    <img class="thumb" data-original="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" src="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-</span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-    2016-11-01
-</span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-<li><a title="用DTcms做一个独立博客网站（响应式模板）" href="http://www.muzhuangnet.com/show/269.html" ><span class="thumbnail">
-    <img class="thumb" data-original="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" src="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-</span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-    2016-11-01
-</span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-<li><a title="用DTcms做一个独立博客网站（响应式模板）" href="http://www.muzhuangnet.com/show/269.html" ><span class="thumbnail">
-    <img class="thumb" data-original="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" src="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-</span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-    2016-11-01
-</span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-<li><a title="用DTcms做一个独立博客网站（响应式模板）" href="http://www.muzhuangnet.com/show/269.html" ><span class="thumbnail">
-    <img class="thumb" data-original="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" src="http://www.muzhuangnet.com/upload/201610/18/201610181739277776.jpg" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-</span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>
-    2016-11-01
-</span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-  
-          </ul>
-      </div>
-      <div class="widget widget_sentence">
-    
-    <a href="http://www.muzhuangnet.com/show/269.html" target="_blank" rel="nofollow" title="MZ-NetBlog主题" >
-        <img style="width: 100%" src="images/ad.jpg" alt="MZ-NetBlog主题" ></a>
-    
-</div>
-      <div class="widget widget_sentence">
-    
-    <a href="http://web.muzhuangnet.com/" target="_blank" rel="nofollow" title="专业网站建设" >
-        <img style="width: 100%" src="http://www.muzhuangnet.com/upload/201610/24/201610241224221511.jpg" alt="专业网站建设" ></a>
-    
-</div>
-  </aside>
-</section>
-    <footer class="footer">
-  <div class="container">
-    <p>本站[<a href="http://www.muzhuangnet.com/" >木庄网络博客</a>]的部分内容来源于网络，若侵犯到您的利益，请联系站长删除！谢谢！Powered By [<a href="http://www.dtcms.net/" target="_blank" rel="nofollow" >DTcms</a>] Version 4.0 </p>
-  </div>
-  <div id="gotop"><a class="gotop"></a></div>
-</footer>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/jquery.ias.js' %}"></script>
-    <script src="{% static 'js/scripts.js' %}"></script>
-</body>
-</html>
+
+{% endblock %}

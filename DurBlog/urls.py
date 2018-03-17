@@ -19,7 +19,8 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^base/$', TemplateView.as_view(template_name='_base.html')),
     url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^list/$', TemplateView.as_view(template_name='list.html'), name='list'),
-    url(r'^show/$', TemplateView.as_view(template_name='show.html'), name='show')
+    url(r'^show/$', TemplateView.as_view(template_name='show.html'), name='show'),
 ]
