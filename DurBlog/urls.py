@@ -24,3 +24,10 @@ urlpatterns = [
     url(r'^list/$', TemplateView.as_view(template_name='list.html'), name='list'),
     url(r'^show/$', TemplateView.as_view(template_name='show.html'), name='show'),
 ]
+
+from articles.views import *
+
+urlpatterns += [
+    url('^blog/$', BlogPostListView.as_view(), name="blog_list"),
+    url('^blog/(?P<pk>[0-9]{1,3})/$', BlogPostDetailView.as_view(), name='blog_detail'),
+]
