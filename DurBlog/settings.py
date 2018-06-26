@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'articles.apps.ArticlesConfig',
+    # 'simple_pagination',
+    # 'django_blog_it.django_blog_it',
+
 ]
 
 MIDDLEWARE = [

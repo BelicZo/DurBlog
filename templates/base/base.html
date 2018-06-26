@@ -1,32 +1,25 @@
-{% extends 'base/base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>{% block title %}MyBlog{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/semantic.min.css' %}">
+    {% block header_js_css %}{% endblock %}
+</head>
+<body>
 
+{% include 'base/_header_bar.html' %}
 
+<div class="ui container" style="margin-top:80px">
 {% block container %}
+    {% include 'base/_breadcrumb.html' %}
+
     <div class="ui grid">
         <div class="twelve wide column">
             <div class="ui divided items">
-
-                {% for post in blog_posts %}
-                <div class="item">
-                    <div class="image">
-                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528541137822&di=4ae3ba7f64ed6850d04bf7f8d74f0e84&imgtype=0&src=http%3A%2F%2Fpic.5442.com%3A82%2F2014%2F0812%2F08%2F02.jpg%2521720.jpg">
-                    </div>
-                    <div class="content">
-                        <a class="header">{{ post.title }}</a>
-                        <div class="meta">
-                            <span class="cinema">{{ post.updated_at }}</span>
-                        </div>
-                        <div class="description">
-                            <p>{{ post.content|truncatewords:'50' }}</p>
-                        </div>
-                        <div class="extra">
-                            <div class="ui label">IMAX</div>
-                            <div class="ui label"><i class="globe icon"></i> Additional Languages</div>
-                            <div class="ui right floated primary button">Buy tickets <i class="right chevron icon"></i> </div>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
                 <div class="item">
                     <div class="image">
                         <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528541137822&di=4ae3ba7f64ed6850d04bf7f8d74f0e84&imgtype=0&src=http%3A%2F%2Fpic.5442.com%3A82%2F2014%2F0812%2F08%2F02.jpg%2521720.jpg">
@@ -92,3 +85,11 @@
         </div>
     </div>
 {% endblock %}
+</div>
+
+
+<script src="{% static 'js/jq/jquery.min.js' %}"></script>
+<script src="{% static 'js/semantic.min.js' %}"></script>
+{% block footer_js_css %}{% endblock %}
+</body>
+</html>
