@@ -29,6 +29,6 @@ urlpatterns = [
 from articles.views import *
 
 urlpatterns += [
-    url('^blog/$', BlogPostListView.as_view(), name="blog_list"),
-    url('^blog/(?P<pk>[0-9]{1,3})/$', BlogPostDetailView.as_view(), name='blog_detail'),
+    url('^blog/$', ArticlesListView.as_view(), name="blog_list"),
+    url('^blog/(?P<pk>[0-9]{1,3})/$', ArticlesDetailView.as_view(), name='blog_detail'),
 ]

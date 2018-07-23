@@ -2,16 +2,16 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView, DetailView, ListView
 import markdown
 
-from .models import BlogTag, BlogCategory, BlogPost
+from .models import ArticleTags, ArticleCategory, Articles
 
 
-class BlogPostDetailView(DetailView):
-    queryset = BlogPost.objects.all()
+class ArticlesDetailView(DetailView):
+    queryset = Articles.objects.all()
     template_name = 'article.html'
     context_object_name = 'blog_post'
 
     def get_object(self, queryset=None):
-        obj = super(BlogPostDetailView, self).get_object(self.queryset)
+        obj = super(ArticlesDetailView, self).get_object(self.queryset)
         # obj.content = markdown.markdown(obj.content, extensions=[
         #     'markdown.extensions.fenced_code',
         #     'markdown.extensions.extra',
@@ -28,8 +28,8 @@ class BlogPostDetailView(DetailView):
         return obj
 
 
-class BlogPostListView(ListView):
-    queryset = BlogPost.objects.all()
+class ArticlesListView(ListView):
+    queryset = Articles.objects.all()
     context_object_name = 'blog_posts'
     template_name = 'list.html'
 

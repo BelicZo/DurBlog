@@ -8,10 +8,12 @@ name = "pypi"
 [packages]
 
 django = "==1.11.8"
+django-pagedown = "*"
 
 
 [dev-packages]
 
+pymysql = "*"
 
 
 [requires]
