@@ -1,11 +1,10 @@
 {% extends 'base/base.html' %}
-
+{% load martortags %}
 
 {% block container %}
     <div class="ui grid">
         <div class="twelve wide column">
             <div class="ui divided items">
-
                 {% for post in blog_posts %}
                 <div class="item">
                     <div class="image">

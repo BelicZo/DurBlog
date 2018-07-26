@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     # 'simple_pagination',
     # 'django_blog_it.django_blog_it',
     'pagedown',
-
+    'ckeditor',
+    'ckeditor_uploader',
+    'markdownx',
+    'martor',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +132,28 @@ USE_TZ = False
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# django-ckeditor
+CKEDITOR_BASEPATH = "/media/ckeditor"
+CKEDITOR_UPLOAD_PATH = '/media/ckeditor/uploads/'
+
+
+# django-markdown-editor ==> martor
+MARTOR_MARKDOWN_EXTENSIONS = [
+        'markdown.extensions.extra',
+        'markdown.extensions.nl2br',
+        'markdown.extensions.smarty',
+        'markdown.extensions.fenced_code',
+
+        # Custom markdown extensions.
+        'martor.extensions.urlize',
+        'martor.extensions.del_ins',    # ~~strikethrough~~ and ++underscores++
+        'martor.extensions.mention',    # to parse markdown mention
+        'martor.extensions.emoji',      # to parse markdown emoji
+        'martor.extensions.mdx_video',  # to parse embed/iframe video
+        'markdown.extensions.extra',
+
+    ]
+

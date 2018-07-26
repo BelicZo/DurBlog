@@ -1,14 +1,17 @@
 from django.contrib import admin
 from django.db import models
 from pagedown.widgets import AdminPagedownWidget
-
+from ckeditor.widgets import CKEditorWidget
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
+from markdownx.widgets import MarkdownxWidget
+from martor.widgets import AdminMartorWidget
 # Register your models here.
 from .models import ArticleCategory, Articles, ArticleTags
 
 
 @admin.register(Articles)
 class ArticlesAdmin(admin.ModelAdmin):
-    formfield_overrides = {models.TextField: {'widget': AdminPagedownWidget(show_preview=False)}}
+    formfield_overrides = {models.TextField: {'widget': AdminMartorWidget()}}
 
 
 class ArticleCategoryAdmin(admin.ModelAdmin):

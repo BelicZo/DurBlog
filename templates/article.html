@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-{% load static markdown_tags %}
+{% load static markdown_tags martortags %}
 {% block header_js_css %}
     <link rel="stylesheet" href="{% static 'css/higtlights/xcode.css' %}">
     <style>
@@ -42,7 +42,7 @@
 </h1>
 {% include 'base/_breadcrumb.html' %}
     <div class="ui basic segment" id="blog">
-{{ blog_post.content|safe }}
+{{ blog_post.content }}
     <div class="right ui rail">
         <div class="ui vertical menu" >
           <div class="item">
@@ -63,11 +63,12 @@
             <div class="item">
             <div class="header">CMS Solutions</div>
             <div class="menu">
-              {{ blog_post.toc|safe }}
+              {{ blog_post.toc }}
             </div>
           </div>
         </div>
     </div>
+</div>
 </div>
 
 

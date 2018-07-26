@@ -1,6 +1,7 @@
 # coding: utf-8
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from martor.models import MartorField
 
 # Create your models here.
 
@@ -37,7 +38,7 @@ class Articles(models.Model):
         (PUBLISHED, '发布'),
     )
     title = models.CharField("标题", max_length=200, unique=True)
-    content = models.TextField("内容")
+    content = MartorField("内容")
     words_count = models.IntegerField(verbose_name="字数", default=0)
     allow_comment = models.BooleanField("允许评论", default=True)
     vote_count = models.IntegerField("点赞数", default=0)

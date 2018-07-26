@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+{% load martortags %}
+
+
+{% block container %}
+
+    {{ form.content|safe_markdown }}
+
+{% endblock %}
+
+{% block footer_js_css %}
+    {{ form.media }}
+{% endblock %}
