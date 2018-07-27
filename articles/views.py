@@ -52,3 +52,8 @@ class ArticlesCreateView(CreateView):
     form_class = ArticlesForm
     model = Articles
 
+    def form_invalid(self, form):
+        return super(ArticlesCreateView, self).form_invalid(form)
+
+
+

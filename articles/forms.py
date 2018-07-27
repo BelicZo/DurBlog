@@ -3,8 +3,9 @@
 # __datetime__ = "2018/7/25 21:36"
 from django import forms
 from pagedown.widgets import PagedownWidget
-from markdownx.fields import MarkdownxFormField
+# from markdownx.fields import MarkdownxFormField, MarkdownxWidget
 from martor.models import MartorFormField
+from martor.widgets import MartorWidget
 
 from .models import Articles
 

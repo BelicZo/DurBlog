@@ -3,11 +3,80 @@
 
 
 {% block container %}
+<form class="ui form segment" action="{% url 'blog_create' %}" enctype="multipart/form-data" method="post" novalidate>
+{% csrf_token %}
+    <div class="inline fields">
+        <label for="id_title">标题</label>
 
-    {{ form.content|safe_markdown }}
+        {{ form.title }}
 
+    </div>
+        <div class="field">
+        <label for="id_title">内容</label>
+        {{ form.content }}
+        </div>
+      <div class="inline field">
+        <div class="ui toggle checkbox">
+          {{ form.allow_comment }}
+          <label>评论</label>
+        </div>
+    </div>
+
+{#        {{ form.status }}#}
+        {{ form.category }}
+        {{ form.tags }}
+
+      <div class="ui twitter submit button">保存草稿</div>
+      <div class="ui primary submit button">保存并发布</div>
+      <div class="ui error message"></div>
+</form>
 {% endblock %}
 
 {% block footer_js_css %}
     {{ form.media }}
+    <script>
+    $('.ui.form').form({
+        fields: {
+          title     : {identifier: 'title',
+              'rules': [
+                  {type: 'empty', prompt: '标题不能为空'},
+                  {type: 'minLength[6]', prompt: '标题不能小于{ruleValue}个字符'}]
+                },
+          content   : {identifier: 'content', 'rules': [
+                  {type: 'empty', prompt: '内容不能为空'},
+                  {type: 'minLength[20]', prompt: '内容不能小于{ruleValue}个字符'}]},
+          allow_comment : {identifier: 'allow_comment', 'rules': [{type: 'empty', prompt: '不能为空'}]},
+          {#password : ['minLength[6]', 'empty'],#}
+          {#skills   : ['minCount[2]', 'empty'],#}
+          {#terms    : {#}
+          {#      identifier: 'terms',#}
+          {#      rules: [#}
+          {#        {#}
+          {#          type   : 'checked',#}
+          {#          prompt : 'You must agree to the terms and conditions'#}
+          {#        }#}
+          {#      ]#}
+          {#    }#}
+        },
+        'set values': {
+            status: 'Draft',
+            allow_comment: 'off'
+        }
+      });
+    if( $('.ui.form').form('is valid')) {
+      // form is valid (both email and name)
+        console.log("验证成功")
+        console.log(this)
+    }else{
+        console.log("失败")
+        console.log(this)
+    }
+    if( $('.ui.form').form('is valid', 'title')) {
+      // form is valid (both email and name)
+        console.log("Title验证成功")
+    }else{
+        console.log("Title失败")
+        console.log(this)
+    }
+    </script>
 {% endblock %}
