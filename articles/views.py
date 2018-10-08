@@ -1,16 +1,20 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import TemplateView, DetailView, ListView, CreateView
+from django.views.generic import TemplateView, DetailView, ListView, CreateView, DateDetailView
 from django.utils.safestring import mark_safe
 import markdown
 
 from .models import ArticleTags, ArticleCategory, Articles
 from .forms import ArticlesForm
 
+__all__ = ['ArticlesCreateView', 'ArticlesDetailView', 'ArticlesListView']
 
-class ArticlesDetailView(DetailView):
+
+class ArticlesDetailView(DateDetailView):
     queryset = Articles.objects.all()
     template_name = 'article.html'
     context_object_name = 'blog_post'
+    date_field = "updated_at"
+    month_format = "%m"
 
     def get_object(self, queryset=None):
         obj = super(ArticlesDetailView, self).get_object(self.queryset)

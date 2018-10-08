@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "38141579508bb79829bfb9fd68028fcf0f170921b138002a95d1ab81d5d593ec"
+            "sha256": "5497d4db10f9e6ac4deba126a4417bf385bf08b7d1505cfd7523b7441796080c"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -29,17 +29,57 @@
         ]
     },
     "default": {
+        "certifi": {
+            "hashes": [],
+            "version": "==2018.8.24"
+        },
+        "chardet": {
+            "hashes": [],
+            "version": "==3.0.4"
+        },
         "django": {
             "hashes": [],
-            "version": "==1.11.8"
+            "version": "==2.1.1"
+        },
+        "django-environ": {
+            "hashes": [],
+            "version": "==0.4.5"
+        },
+        "django-extensions": {
+            "hashes": [],
+            "version": "==2.1.3"
         },
         "django-pagedown": {
             "hashes": [],
-            "version": "==1.0.5"
+            "version": "==1.0.6"
+        },
+        "idna": {
+            "hashes": [],
+            "version": "==2.7"
+        },
+        "markdown": {
+            "hashes": [],
+            "version": "==3.0.1"
+        },
+        "martor": {
+            "hashes": [],
+            "version": "==1.3.3"
         },
         "pytz": {
             "hashes": [],
             "version": "==2018.5"
+        },
+        "requests": {
+            "hashes": [],
+            "version": "==2.19.1"
+        },
+        "six": {
+            "hashes": [],
+            "version": "==1.11.0"
+        },
+        "urllib3": {
+            "hashes": [],
+            "version": "==1.23"
         }
     },
     "develop": {
@@ -47,29 +87,61 @@
             "hashes": [],
             "version": "==0.24.0"
         },
+        "certifi": {
+            "hashes": [],
+            "version": "==2018.8.24"
+        },
         "cffi": {
             "hashes": [],
             "version": "==1.11.5"
         },
+        "chardet": {
+            "hashes": [],
+            "version": "==3.0.4"
+        },
         "cryptography": {
             "hashes": [],
-            "version": "==2.3"
+            "version": "==2.3.1"
+        },
+        "django": {
+            "hashes": [],
+            "version": "==2.1.2"
         },
         "idna": {
             "hashes": [],
             "version": "==2.7"
         },
+        "markdown": {
+            "hashes": [],
+            "version": "==3.0.1"
+        },
+        "martor": {
+            "hashes": [],
+            "version": "==1.3.3"
+        },
         "pycparser": {
             "hashes": [],
-            "version": "==2.18"
+            "version": "==2.19"
         },
         "pymysql": {
             "hashes": [],
             "version": "==0.9.2"
         },
+        "pytz": {
+            "hashes": [],
+            "version": "==2018.5"
+        },
+        "requests": {
+            "hashes": [],
+            "version": "==2.19.1"
+        },
         "six": {
             "hashes": [],
             "version": "==1.11.0"
+        },
+        "urllib3": {
+            "hashes": [],
+            "version": "==1.23"
         }
     }
 }

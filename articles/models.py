@@ -1,7 +1,11 @@
 # coding: utf-8
+import re
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.core.validators import validate_comma_separated_integer_list
 from martor.models import MartorField
+
+from utils.urls import slugify_unicode, unique_slug
 
 # Create your models here.
 
@@ -38,14 +42,19 @@ class Articles(models.Model):
         (PUBLISHED, '发布'),
     )
     title = models.CharField("标题", max_length=200, unique=True)
+    slug = models.CharField("URL别名", max_length=512, blank=True)
     content = MartorField("内容")
     words_count = models.IntegerField(verbose_name="字数", default=0)
     allow_comment = models.BooleanField("允许评论", default=True)
     vote_count = models.IntegerField("点赞数", default=0)
     status = models.CharField(max_length=1, choices=STATUS, default=DRAFT)
-    category = models.ForeignKey(ArticleCategory, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="博文种类",
-                                 related_name="article")
-    tags = models.ManyToManyField(ArticleTags, related_name="article")
+    # category = models.ForeignKey(ArticleCategory, on_delete=models.SET_NULL, null=True, blank=True,
+    #                              verbose_name="博文种类", related_name="article")
+    category = models.CharField("博文种类", validators=[validate_comma_separated_integer_list], max_length=64,
+                                null=True, blank=True)
+    # tags = models.ManyToManyField(ArticleTags, related_name="article")
+    tags = models.CharField("标签", validators=[validate_comma_separated_integer_list], max_length=64,
+                            null=True, blank=True)
     created_at = models.DateTimeField("创建时间", auto_now_add=True)
     published_at = models.DateTimeField("发表时间", blank=True, null=True, db_index=True)
     updated_at = models.DateTimeField("更新时间", auto_now=True)
@@ -56,11 +65,30 @@ class Articles(models.Model):
         verbose_name = "博文"
         verbose_name_plural = verbose_name
 
+    def count_words(self):
+        self.words_count = re.sub(r'[ \t\n]', '', self.content).__len__()
+        self.save(update_fields=["words_count"])
+        return self.words_count
+
     def __repr__(self):
-        return "{} - {} - {}".format(self.pk, self.title, self.published_at)
+        # return "{}--{}--{}".format(self.pk, self.title, self.published_at)
+        return f"{self.pk}--{self.title}--{self.created_at}"
 
     def __str__(self):
-        return "{} - {} - {}".format(self.pk, self.title, self.published_at)
+        # return "{}--{}--{}".format(self.pk, self.title, self.published_at)
+        return f"{self.pk}--{self.title}--{self.created_at}"
+
+    # def clean(self):
+    #     print("hello world")
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        # self.full_clean(exclude=None, validate_unique=True)
+        super(Articles, self).save(force_insert, force_update, using, update_fields)
+
+    def generate_unique_slug(self):
+        slug_qs = Articles.objects.exclude(id=self.id)
+        return unique_slug(slug_qs, 'slug', slugify_unicode(self.title))
 
 
 class ArticleComment(models.Model):

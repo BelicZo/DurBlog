@@ -1,14 +1,21 @@
 import os
+import environ
 import pymysql
+
+
 pymysql.install_as_MySQLdb()
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'xe!h7za-az$uf2kkbo#a#ggby-rdic_xeg@sormuvsdtzbki7c'
+ROOT_DIR = environ.Path(__file__) - 2
+env = environ.Env()
+env.read_env(os.path.join(BASE_DIR, '.env'))
+# SECRET_KEY = 'xe!h7za-az$uf2kkbo#a#ggby-rdic_xeg@sormuvsdtzbki7c'
 
-DEBUG = True
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = env.bool('DJANGO_DEBUG', False)
 
-ALLOWED_HOSTS = ['*']
-
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['127.0.0.1'])
 
 # Application definition
 
@@ -23,6 +30,7 @@ INSTALLED_APPS = [
     'common.apps.CommonConfig',
     # 'simple_pagination',
     # 'django_blog_it.django_blog_it',
+    'django_extensions',
     'pagedown',
     'ckeditor',
     'ckeditor_uploader',
@@ -61,13 +69,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'DurBlog.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dur_blog',
-        'USER': 'root',
-        'PASSWORD': '1213',
-        'PORT': 3306
-    }
+    'default': env.db('DATABASE_URL')
 }
 
 

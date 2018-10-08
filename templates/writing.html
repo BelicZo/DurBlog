@@ -3,7 +3,7 @@
 
 
 {% block container %}
-<form class="ui form segment" action="{% url 'blog_create' %}" enctype="multipart/form-data" method="post" novalidate>
+<form class="ui form segment" enctype="multipart/form-data" method="post" novalidate>
 {% csrf_token %}
     <div class="inline fields">
         <label for="id_title">标题</label>
@@ -22,18 +22,25 @@
         </div>
     </div>
 
-{#        {{ form.status }}#}
-        {{ form.category }}
-        {{ form.tags }}
+        {{ form.status }}
+    <div class="ui hidden divider"></div>
 
-      <div class="ui twitter submit button">保存草稿</div>
-      <div class="ui primary submit button">保存并发布</div>
+        {{ form.category }}
+
+    <div class="ui hidden divider"></div>
+
+        {{ form.tags }}
+    <div class="ui hidden divider"></div>
+
+      <div class="ui twitter submit button" id="draft" >保存草稿</div>
+      <div class="ui primary submit button" id="published">保存并发布</div>
       <div class="ui error message"></div>
 </form>
 {% endblock %}
 
 {% block footer_js_css %}
-    {{ form.media }}
+{#    {{ form.media }}#}
+
     <script>
     $('.ui.form').form({
         fields: {
@@ -79,4 +86,31 @@
         console.log(this)
     }
     </script>
+    <script>
+    $.fn.api.settings.api = {
+      'commit' : '/new_blog/?state={value}'
+    };
+    $('form .twitter.submit.button')
+      .api({
+        url: '/new_blog/?hello=world',
+        action: 'commit',
+        serializeForm: true,
+        urlData:{
+            value: 'DDD'
+        },
+        data: {
+          value: 'D'
+        },
+        beforeSend: function(settings) {
+          // open console to inspect object
+            // form data is editable in before send
+          if(settings.data.username === '') {
+            settings.data.username = 'New User';
+          }
+          console.log(settings.data);
+          return settings.data
+        }
+      })
+    ;
+</script>
 {% endblock %}

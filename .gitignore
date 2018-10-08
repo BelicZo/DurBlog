@@ -97,3 +97,7 @@ ENV/
 
 .idea/
 *.sqlite3
+articles/migrations/0003_auto_20180927_2224.py
+articles/migrations/0004_auto_20180927_2320.py
+media/
+static/img/
