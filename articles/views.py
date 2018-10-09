@@ -24,23 +24,21 @@ class ArticlesDetailView(DateDetailView):
         #     'markdown.extensions.codehilite',
         #     'markdown.extensions.table',
         #     'markdown.extensions.toc'], safe_mode=True, enable_attributes=False)
-        from martor.settings import MARTOR_MARKDOWN_EXTENSIONS, MARTOR_MARKDOWN_SAFE_MODE, MARTOR_MARKDOWN_EXTENSION_CONFIGS
-        convert_obj = markdown.markdown(
-            obj.content,
-            safe_mode=MARTOR_MARKDOWN_SAFE_MODE,
-            extensions=MARTOR_MARKDOWN_EXTENSIONS+['markdown.extensions.codehilite', 'markdown.extensions.tables',
-                                                   'markdown.extensions.toc'],
-            extension_configs=MARTOR_MARKDOWN_EXTENSION_CONFIGS
-        )
+        # django-markdown-editor == martor 模板中用safe_markdown替代
+        # from martor.settings import MARTOR_MARKDOWN_EXTENSIONS, MARTOR_MARKDOWN_SAFE_MODE, MARTOR_MARKDOWN_EXTENSION_CONFIGS
+        # convert_obj = markdown.markdown(
+        #     obj.content,
+        #     safe_mode=MARTOR_MARKDOWN_SAFE_MODE,
+        #     extensions=MARTOR_MARKDOWN_EXTENSIONS,
+        #     extension_configs=MARTOR_MARKDOWN_EXTENSION_CONFIGS
+        # )
 
-        # md = markdown.Markdown(extensions=[
-        #     'markdown.extensions.extra',
-        #     'markdown.extensions.codehilite',
-        #     'markdown.extensions.toc',
-        # ], safe_mode=True, enable_attributes=False)
-        # obj.content = md.convert(obj.content)
-        # obj.toc = md.toc
-        obj.content = mark_safe(convert_obj)
+        md = markdown.Markdown(extensions=[
+            'markdown.extensions.toc',
+        ], safe_mode=True, enable_attributes=False)
+        md.convert(obj.content)
+        obj.toc = md.toc
+        # obj.content = mark_safe(convert_obj)
         return obj
 
 

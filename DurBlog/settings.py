@@ -2,7 +2,6 @@ import os
 import environ
 import pymysql
 
-
 pymysql.install_as_MySQLdb()
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -72,7 +71,6 @@ DATABASES = {
     'default': env.db('DATABASE_URL')
 }
 
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -88,7 +86,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'Asia/Shanghai'
@@ -99,9 +96,8 @@ USE_L10N = True
 
 USE_TZ = False
 
-
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -110,21 +106,29 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_BASEPATH = "/media/ckeditor"
 CKEDITOR_UPLOAD_PATH = '/media/ckeditor/uploads/'
 
-
 # django-markdown-editor ==> martor
 MARTOR_MARKDOWN_EXTENSIONS = [
-        'markdown.extensions.extra',
-        'markdown.extensions.nl2br',
-        'markdown.extensions.smarty',
-        'markdown.extensions.fenced_code',
+    'markdown.extensions.extra',
+    'markdown.extensions.nl2br',
+    'markdown.extensions.smarty',
+    'markdown.extensions.fenced_code',
 
-        # Custom markdown extensions.
-        'martor.extensions.urlize',
-        'martor.extensions.del_ins',    # ~~strikethrough~~ and ++underscores++
-        'martor.extensions.mention',    # to parse markdown mention
-        'martor.extensions.emoji',      # to parse markdown emoji
-        'martor.extensions.mdx_video',  # to parse embed/iframe video
-        'markdown.extensions.extra',
+    # Custom markdown extensions.
+    'martor.extensions.urlize',
+    'martor.extensions.del_ins',  # ~~strikethrough~~ and ++underscores++
+    'martor.extensions.mention',  # to parse markdown mention
+    'martor.extensions.emoji',  # to parse markdown emoji
+    'martor.extensions.mdx_video',  # to parse embed/iframe video
 
-    ]
+    'markdown.extensions.codehilite',
+    'markdown.extensions.tables',
+    'markdown.extensions.toc',
+    'markdown.extensions.smarty',
 
+]
+
+MARTOR_MARKDOWN_EXTENSION_CONFIGS = {
+    "smarty": {
+        "smart_angled_quotes": True
+    }
+}
