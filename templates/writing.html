@@ -1,6 +1,9 @@
 {% extends 'base/base.html' %}
 {% load martortags %}
 
+{% block header_js_css %}
+
+{% endblock %}
 
 {% block container %}
 <form class="ui form segment" enctype="multipart/form-data" method="post" novalidate>
@@ -39,7 +42,7 @@
 {% endblock %}
 
 {% block footer_js_css %}
-{#    {{ form.media }}#}
+    {{ form.media }}
 
     <script>
     $('.ui.form').form({
@@ -49,9 +52,9 @@
                   {type: 'empty', prompt: '标题不能为空'},
                   {type: 'minLength[6]', prompt: '标题不能小于{ruleValue}个字符'}]
                 },
-          content   : {identifier: 'content', 'rules': [
-                  {type: 'empty', prompt: '内容不能为空'},
-                  {type: 'minLength[20]', prompt: '内容不能小于{ruleValue}个字符'}]},
+          {#content   : {identifier: 'content', 'rules': [#}
+          {#        {type: 'empty', prompt: '内容不能为空'},#}
+          {#        {type: 'minLength[20]', prompt: '内容不能小于{ruleValue}个字符'}]},#}
           allow_comment : {identifier: 'allow_comment', 'rules': [{type: 'empty', prompt: '不能为空'}]},
           {#password : ['minLength[6]', 'empty'],#}
           {#skills   : ['minCount[2]', 'empty'],#}

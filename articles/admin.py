@@ -11,7 +11,7 @@ from .models import ArticleCategory, Articles, ArticleTags
 
 @admin.register(Articles)
 class ArticlesAdmin(admin.ModelAdmin):
-    formfield_overrides = {models.TextField: {'widget': AdminMartorWidget()}}
+    formfield_overrides = {models.TextField: {'widget': CKEditorWidget()}}
 
 
 class ArticleCategoryAdmin(admin.ModelAdmin):

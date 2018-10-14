@@ -24,3 +24,10 @@ urlpatterns += [
     url(r'^markdownx/', include('markdownx.urls')),
     url(r'^martor/', include('martor.urls')),
 ]
+
+from django.conf import settings
+from django.views.static import serve
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$', serve, {"document_root": settings.MEDIA_ROOT}),
+    ]

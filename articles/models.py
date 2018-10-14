@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.validators import validate_comma_separated_integer_list
 from martor.models import MartorField
+from ckeditor.fields import RichTextField
 
 from utils.urls import slugify_unicode, unique_slug
 
@@ -43,7 +44,9 @@ class Articles(models.Model):
     )
     title = models.CharField("标题", max_length=200, unique=True)
     slug = models.CharField("URL别名", max_length=512, blank=True)
-    content = MartorField("内容")
+    # content = MartorField("内容")
+    content = models.TextField("内容")
+    # content = RichTextField("内容")
     words_count = models.IntegerField(verbose_name="字数", default=0)
     allow_comment = models.BooleanField("允许评论", default=True)
     vote_count = models.IntegerField("点赞数", default=0)
@@ -89,6 +92,10 @@ class Articles(models.Model):
     def generate_unique_slug(self):
         slug_qs = Articles.objects.exclude(id=self.id)
         return unique_slug(slug_qs, 'slug', slugify_unicode(self.title))
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('articles:blog_detail', args=[self.published_at.year, self.published_at.month, self.published_at.day])
 
 
 class ArticleComment(models.Model):

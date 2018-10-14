@@ -4,7 +4,7 @@ from django.utils.safestring import mark_safe
 import markdown
 
 from .models import ArticleTags, ArticleCategory, Articles
-from .forms import ArticlesForm
+from .forms import ArticlesForm, ArticlesPagedownForm, ArticlesMarkdownXForm, ArticlesCkeditorForm
 
 __all__ = ['ArticlesCreateView', 'ArticlesDetailView', 'ArticlesListView']
 
@@ -33,14 +33,27 @@ class ArticlesDetailView(DateDetailView):
         #     extension_configs=MARTOR_MARKDOWN_EXTENSION_CONFIGS
         # )
 
-        md = markdown.Markdown(extensions=[
-            'markdown.extensions.toc',
-        ], safe_mode=True, enable_attributes=False)
-        md.convert(obj.content)
-        obj.toc = md.toc
+        # md = markdown.Markdown(extensions=[
+        #     'markdown.extensions.toc',
+        # ], safe_mode=True, enable_attributes=False)
+        # md.convert(obj.content)
+        # obj.toc = md.toc
         # obj.content = mark_safe(convert_obj)
         return obj
-
+    
+    def get_context_data(self, **kwargs):
+        md = markdown.Markdown(extensions=[
+            'markdown.extensions.toc',
+        ], extension_configs={"toc": {
+            "slugify": "markdown.extensions.headerid.slugify",
+            "toc_depth": 1
+        }})
+        md.convert(self.object.content)
+        toc = md.toc
+        context = {"toc": toc}
+        context.update(kwargs)
+        return super(ArticlesDetailView, self).get_context_data(**context)
+        
 
 class ArticlesListView(ListView):
     queryset = Articles.objects.all()
@@ -57,5 +70,15 @@ class ArticlesCreateView(CreateView):
     def form_invalid(self, form):
         return super(ArticlesCreateView, self).form_invalid(form)
 
+    def get_form_class(self):
+        editor = self.request.GET.get("editor", '')
+        if editor == "pagedown":
+            return ArticlesPagedownForm
+        elif editor == 'markdownx':
+            return ArticlesMarkdownXForm
+        elif editor == 'ckeditor':
+            return ArticlesCkeditorForm
+        return self.form_class
+        # return super(ArticlesCreateView, self).get_form_class()
 
 
