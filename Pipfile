@@ -7,7 +7,7 @@ name = "pypi"
 
 [packages]
 
-django = "==2.1.1"
+django = "==3.0.7"
 django-pagedown = "*"
 django-extensions = "*"
 django-environ = "*"
